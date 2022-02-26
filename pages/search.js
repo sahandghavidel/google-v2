@@ -1,6 +1,7 @@
 import Head from "next/head";
 import SearchHeader from "../components/SearchHeader";
 import SearchResults from "../components/SearchResults";
+import ImageResults from "../components/ImageResults";
 import { useRouter } from "next/router";
 import Response from "../Response";
 
@@ -16,9 +17,13 @@ export default function Search({ results }) {
 
       <SearchHeader />
 
-      {/* Search Results */}
+      {/* Search and Image Results */}
 
-      <SearchResults results={results} />
+      {router.query.searchType === "image" ? (
+        <ImageResults results={results} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </div>
   );
 }
