@@ -4,12 +4,11 @@ export default function User({ className }) {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div
+      <img
         onClick={() => signOut()}
-        className={`hover:bg-gray-200 cursor-pointer rounded-full h-12 w-12 flex items-center justify-center ${className}`}
-      >
-        <img src={session.user.image} className="h-10 w-10  rounded-full " />
-      </div>
+        src={session.user.image}
+        className={`h-10 w-10  rounded-full hover:bg-gray-200 cursor-pointer p-1  ${className}`}
+      />
     );
   }
   return (
